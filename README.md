@@ -54,26 +54,26 @@ POST	/api/pedidos
 GET	/api/pedidos/{id}
 GET	/api/pedidos/cliente/{clienteId}
 Ejemplos de Request
-Crear Cliente
+POST /api/clientes
 {
   "nombre": "Juan",
   "apellido": "Perez",
   "dni": "12345678",
   "correo": "juan@gmail.com"
 }
-Crear Producto
+POST /api/productos
 {
   "nombre": "Laptop Lenovo",
   "descripcion": "Core i7 16GB RAM",
   "precio": 3500,
   "stock": 10
 }
-Crear Pedido
+POST /api/pedidos
 {
   "clienteId": 1,
   "detalles": [
-{
-   "productoId": 1,
+    {
+      "productoId": 1,
       "cantidad": 1
     },
     {
@@ -81,6 +81,55 @@ Crear Pedido
       "cantidad": 2
     }
   ]
+}
+Ejemplos de Respuesta
+GET /api/clientes/1
+{
+  "codigo": 200,
+  "mensaje": "Cliente encontrado",
+  "objeto": {
+    "id": 1,
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "dni": "12345678",
+    "correo": "juan@gmail.com"
+  }
+}
+GET /api/productos
+{
+  "codigo": 200,
+  "mensaje": "Lista de productos",
+  "objeto": [
+    {
+      "id": 1,
+      "nombre": "Laptop Lenovo",
+      "descripcion": "Core i7 16GB RAM",
+      "precio": 3500,
+      "stock": 10,
+      "estado": true
+    }
+  ]
+}
+GET /api/pedidos/1
+{
+  "codigo": 200,
+  "mensaje": "Pedido encontrado",
+  "objeto": {
+    "id": 1,
+    "clienteId": 1,
+    "fechaPedido": "2026-06-18T03:46:42",
+    "estado": "CREADO",
+    "total": 1660,
+    "detalles": [
+      {
+        "productoId": 1,
+        "nombreProducto": "PC Gamer",
+        "cantidad": 1,
+        "precioUnitario": 1500,
+        "subtotal": 1500
+      }
+    ]
+  }
 }
 Pruebas Unitarias
 
