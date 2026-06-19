@@ -61,6 +61,9 @@ POST /api/clientes
   "dni": "12345678",
   "correo": "juan@gmail.com"
 }
+
+
+
 POST /api/productos
 {
   "nombre": "Laptop Lenovo",
@@ -68,6 +71,9 @@ POST /api/productos
   "precio": 3500,
   "stock": 10
 }
+
+
+
 POST /api/pedidos
 {
   "clienteId": 1,
@@ -82,55 +88,7 @@ POST /api/pedidos
     }
   ]
 }
-Ejemplos de Respuesta
-GET /api/clientes/1
-{
-  "codigo": 200,
-  "mensaje": "Cliente encontrado",
-  "objeto": {
-    "id": 1,
-    "nombre": "Juan",
-    "apellido": "Perez",
-    "dni": "12345678",
-    "correo": "juan@gmail.com"
-  }
-}
-GET /api/productos
-{
-  "codigo": 200,
-  "mensaje": "Lista de productos",
-  "objeto": [
-    {
-      "id": 1,
-      "nombre": "Laptop Lenovo",
-      "descripcion": "Core i7 16GB RAM",
-      "precio": 3500,
-      "stock": 10,
-      "estado": true
-    }
-  ]
-}
-GET /api/pedidos/1
-{
-  "codigo": 200,
-  "mensaje": "Pedido encontrado",
-  "objeto": {
-    "id": 1,
-    "clienteId": 1,
-    "fechaPedido": "2026-06-18T03:46:42",
-    "estado": "CREADO",
-    "total": 1660,
-    "detalles": [
-      {
-        "productoId": 1,
-        "nombreProducto": "PC Gamer",
-        "cantidad": 1,
-        "precioUnitario": 1500,
-        "subtotal": 1500
-      }
-    ]
-  }
-}
+
 Pruebas Unitarias
 
 Se implementaron pruebas unitarias utilizando JUnit 5 y Mockito para las capas:
